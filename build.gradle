@@ -29,7 +29,7 @@ task wrapper(type: Wrapper) {
 
 jar {
     manifest {
-        attributes 'Implementation-Title': 'Partial function application in Java',
+        attributes 'Implementation-Title': 'Funava',
                    'Implementation-Version': version
     }
 }
