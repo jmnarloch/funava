@@ -25,7 +25,7 @@ public static int sum(int a, int b) {
         return a + b;
 }
 
-int sum = Partial.function(Demo::sum)
+int sum = Partial.function(this::sum)
                 .arg(1)
                 .apply(2);
 
@@ -35,7 +35,7 @@ public static int substract(int a, int b) {
         return a - b;
 }
 
-int diff = Partial.function(Demo::substract)
+int diff = Partial.function(this::substract)
                 .rarg(2)
                 .apply(1);
 
@@ -45,7 +45,7 @@ public static int product(int a, int b) {
         return a * b;
 }
     
-int product = Partial.function(Demo::product)
+int product = Partial.function(this::product)
                 .arg(4)
                 .apply(5);
 
