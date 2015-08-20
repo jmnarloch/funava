@@ -4,6 +4,18 @@
 
 [![Build Status](https://travis-ci.org/jmnarloch/funava.svg?branch=master)](https://travis-ci.org/jmnarloch/funava)
 
+## Setup
+
+Currently only as snapshot available from: https://oss.sonatype.org/content/repositories/snapshots/
+
+```xml
+<dependency>
+    <groupId>io.jmnarloch</groupId>
+    <artifactId>funava</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+</dependency>
+```
+
 ## Examples
 
 ```java
