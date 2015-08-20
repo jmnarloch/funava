@@ -21,7 +21,7 @@ String url = Partial.function(this::url)
 
 // url == https://github.com:443/jmnarloch/funava
 
-public static int sum(int a, int b) {
+public int sum(int a, int b) {
         return a + b;
 }
 
@@ -31,7 +31,7 @@ int sum = Partial.function(this::sum)
 
 // 1 + 2 == 3
 
-public static int substract(int a, int b) {
+public int substract(int a, int b) {
         return a - b;
 }
 
@@ -41,7 +41,7 @@ int diff = Partial.function(this::substract)
 
 // 1 - 2 == -1
 
-public static int product(int a, int b) {
+public int product(int a, int b) {
         return a * b;
 }
     
