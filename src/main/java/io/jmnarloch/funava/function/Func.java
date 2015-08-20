@@ -20,7 +20,7 @@ package io.jmnarloch.funava.function;
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface Fun<R> {
+public interface Func<R> {
 
     R apply();
 }

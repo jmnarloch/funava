@@ -20,17 +20,17 @@ package io.jmnarloch.funava.function;
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface FunOne<R, T> {
+public interface FuncFour<R, T1, T2, T3, T4> {
 
-    R apply(T arg);
+    R apply(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
 
-    default Fun<R> arg(T arg) {
-        
-        return () -> this.apply(arg);
+    default FuncThree<R, T2, T3, T4> arg(T1 arg) {
+
+        return (T2 arg2, T3 arg3, T4 arg4) -> this.apply(arg, arg2, arg3, arg4);
     }
 
-    default Fun<R> rarg(T arg) {
+    default FuncThree<R, T1, T2, T3> rarg(T4 arg) {
 
-        return arg(arg);
+        return (T1 arg1, T2 arg2, T3 arg3) -> this.apply(arg1, arg2, arg3, arg);
     }
 }

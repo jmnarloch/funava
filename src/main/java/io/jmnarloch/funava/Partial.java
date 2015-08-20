@@ -23,27 +23,27 @@ import io.jmnarloch.funava.supplier.*;
  */
 public interface Partial {
 
-    static <R> Fun<R> function(Fun<R> fun) {
+    static <R> Func<R> function(Func<R> func) {
+        return func;
+    }
+
+    static <R, T> FuncOne<R, T> function(FuncOne<R, T> fun) {
         return fun;
     }
 
-    static <R, T> FunOne<R, T> function(FunOne<R, T> fun) {
+    static <R, T1, T2> FuncTwo<R, T1, T2> function(FuncTwo<R, T1, T2> fun) {
         return fun;
     }
 
-    static <R, T1, T2> FunTwo<R, T1, T2> function(FunTwo<R, T1, T2> fun) {
+    static <R, T1, T2, T3> FuncThree<R, T1, T2, T3> function(FuncThree<R, T1, T2, T3> fun) {
         return fun;
     }
 
-    static <R, T1, T2, T3> FunThree<R, T1, T2, T3> function(FunThree<R, T1, T2, T3> fun) {
+    static <R, T1, T2, T3, T4> FuncFour<R, T1, T2, T3, T4> function(FuncFour<R, T1, T2, T3, T4> fun) {
         return fun;
     }
 
-    static <R, T1, T2, T3, T4> FunFour<R, T1, T2, T3, T4> function(FunFour<R, T1, T2, T3, T4> fun) {
-        return fun;
-    }
-
-    static <R, T1, T2, T3, T4, T5> FunFive<R, T1, T2, T3, T4, T5> function(FunFive<R, T1, T2, T3, T4, T5> fun) {
+    static <R, T1, T2, T3, T4, T5> FuncFive<R, T1, T2, T3, T4, T5> function(FuncFive<R, T1, T2, T3, T4, T5> fun) {
         return fun;
     }
 
