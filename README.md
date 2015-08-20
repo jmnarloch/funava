@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/jmnarloch/funava.svg?branch=master)](https://travis-ci.org/jmnarloch/funava)
 
-## Example
+## Examples
 
 ```java
 
@@ -20,6 +20,36 @@ String url = Partial.function(this::url)
                 .apply("funava");
 
 // url == https://github.com:443/jmnarloch/funava
+
+public static int sum(int a, int b) {
+        return a + b;
+}
+
+int sum = Partial.function(Demo::sum)
+                .arg(1)
+                .apply(2);
+
+// 1 + 2 == 3
+
+public static int substract(int a, int b) {
+        return a - b;
+}
+
+int diff = Partial.function(Demo::substract)
+                .rarg(2)
+                .apply(1);
+
+// 1 - 2 == -1
+
+public static int product(int a, int b) {
+        return a * b;
+}
+    
+int product = Partial.function(Demo::product)
+                .arg(4)
+                .apply(5);
+
+// 4 * 5 == 20
 ```
 
 ## License

@@ -26,7 +26,7 @@ public class Demo {
     @Test
     public void usage() {
 
-        String url = Partial.function(this::url)
+        String url = Partial.function(Demo::url)
                 .arg("https")
                 .arg("github.com")
                 .arg(443)
@@ -35,9 +35,39 @@ public class Demo {
 
         // url = https://github.com:443/jmnarloch/funava
         System.out.println(url);
+
+        int sum = Partial.function(Demo::sum)
+                .arg(1)
+                .apply(2);
+
+        // 1 + 2 == 3
+
+        int diff = Partial.function(Demo::substract)
+                .rarg(2)
+                .apply(1);
+
+        // 1 - 2 == -1
+
+        int product = Partial.function(Demo::product)
+                .arg(4)
+                .apply(5);
+
+        // 4 * 5 == 20
     }
 
-    public String url(String scheme, String host, int port, String username, String repo) {
+    public static int sum(int a, int b) {
+        return a + b;
+    }
+
+    public static int substract(int a, int b) {
+        return a - b;
+    }
+
+    public static int product(int a, int b) {
+        return a * b;
+    }
+
+    public static String url(String scheme, String host, int port, String username, String repo) {
         return String.format("%s://%s:%d/%s/%s", scheme, host, port, username, repo);
     }
 }
