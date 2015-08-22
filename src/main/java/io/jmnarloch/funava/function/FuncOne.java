@@ -26,7 +26,7 @@ public interface FuncOne<R, T> {
 
     default Func<R> arg(T arg) {
         
-        return () -> this.apply(arg);
+        return () -> apply(arg);
     }
 
     default Func<R> rarg(T arg) {

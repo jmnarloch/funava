@@ -26,11 +26,11 @@ public interface FuncFive<R, T1, T2, T3, T4, T5> {
 
     default FuncFour<R, T2, T3, T4, T5> arg(T1 arg) {
 
-        return (T2 arg2, T3 arg3, T4 arg4, T5 arg5) -> this.apply(arg, arg2, arg3, arg4, arg5);
+        return (T2 arg2, T3 arg3, T4 arg4, T5 arg5) -> apply(arg, arg2, arg3, arg4, arg5);
     }
 
     default FuncFour<R, T1, T2, T3, T4> rarg(T5 arg) {
 
-        return (T1 arg1, T2 arg2, T3 arg3, T4 arg4) -> this.apply(arg1, arg2, arg3, arg4, arg);
+        return (T1 arg1, T2 arg2, T3 arg3, T4 arg4) -> apply(arg1, arg2, arg3, arg4, arg);
     }
 }

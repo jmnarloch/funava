@@ -24,7 +24,27 @@ import org.junit.Test;
 public class Demo {
 
     @Test
-    public void usage() {
+    public void safeCast() {
+
+        Object val = "test";
+
+        String result =  SafeCast.cast(val).to(String.class).orElse("default");
+
+        // result == test
+    }
+
+    @Test
+    public void ternaryOperator() {
+
+        int i = 15;
+
+        int result = Conditional.when(i % 2 == 0).then(i / 2).orElse(i * 3);
+
+        // i == 45
+    }
+
+    @Test
+    public void partialApplication() {
 
         String url = Partial.function(Demo::url)
                 .arg("https")

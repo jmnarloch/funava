@@ -26,11 +26,11 @@ public interface SupThree<T1, T2, T3> {
 
     default SupTwo<T2, T3> arg(T1 arg) {
 
-        return (T2 arg2, T3 arg3) -> this.apply(arg, arg2, arg3);
+        return (T2 arg2, T3 arg3) -> apply(arg, arg2, arg3);
     }
 
     default SupTwo<T1, T2> rarg(T3 arg) {
 
-        return (T1 arg1, T2 arg2) -> this.apply(arg1, arg2, arg);
+        return (T1 arg1, T2 arg2) -> apply(arg1, arg2, arg);
     }
 }

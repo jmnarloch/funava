@@ -26,7 +26,7 @@ public interface SupOne<T> {
 
     default Sup arg(T arg) {
 
-        return () -> this.apply(arg);
+        return () -> apply(arg);
     }
 
     default Sup rarg(T arg) {

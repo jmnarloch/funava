@@ -26,11 +26,11 @@ public interface FuncTwo<R, T1, T2> {
 
     default FuncOne<R, T2> arg(T1 arg) {
 
-        return (T2 arg2) -> this.apply(arg, arg2);
+        return (T2 arg2) -> apply(arg, arg2);
     }
 
     default FuncOne<R, T1> rarg(T2 arg) {
 
-        return (T1 arg1) -> this.apply(arg1, arg);
+        return (T1 arg1) -> apply(arg1, arg);
     }
 }

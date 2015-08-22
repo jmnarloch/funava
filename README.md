@@ -4,6 +4,8 @@
 
 [![Build Status](https://travis-ci.org/jmnarloch/funava.svg?branch=master)](https://travis-ci.org/jmnarloch/funava)
 
+Funava is implemented without a single Java class.
+
 ## Setup
 
 Currently only as snapshot available from: https://oss.sonatype.org/content/repositories/snapshots/
@@ -17,6 +19,32 @@ Currently only as snapshot available from: https://oss.sonatype.org/content/repo
 ```
 
 ## Examples
+
+Safe cast
+
+```java
+
+Object val = "test";
+
+String result =  SafeCast.cast(val).to(String.class).orElse("default");
+
+// result == test
+
+```
+
+Ternary operator
+
+```
+
+int i = 15;
+
+int result = Conditional.when(i % 2 == 0).then(i / 2).orElse(i * 3);
+
+// i == 45
+
+```
+
+Partial function application
 
 ```java
 

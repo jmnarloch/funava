@@ -13,24 +13,27 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.jmnarloch.funava.supplier;
+package io.jmnarloch.funava;
+
+import java.util.Optional;
 
 /**
- *
  * @author Jakub Narloch
  */
-@FunctionalInterface
-public interface SupFour<T1, T2, T3, T4> {
+public interface SafeCast {
 
-    void apply(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
-
-    default SupThree<T2, T3, T4> arg(T1 arg) {
-
-        return (T2 arg2, T3 arg3, T4 arg4) -> apply(arg, arg2, arg3, arg4);
+    static <S> Castable cast(S source) {
+        return new Castable() {
+            @Override
+            @SuppressWarnings("unchecked")
+            public <T> Optional<T> to(Class<T> target) {
+                return target.isInstance(source) ? Optional.of((T)source) : Optional.empty();
+            }
+        };
     }
 
-    default SupThree<T1, T2, T3> rarg(T4 arg) {
+    interface Castable {
 
-        return (T1 arg1, T2 arg2, T3 arg3) -> apply(arg1, arg2, arg3, arg);
+        <T> Optional<T> to(Class<T> target);
     }
 }
