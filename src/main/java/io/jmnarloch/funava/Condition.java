@@ -20,10 +20,10 @@ import java.util.Optional;
 /**
  * @author Jakub Narloch
  */
-public interface Conditional {
+public interface Condition {
 
-    static Condition when(boolean condition) {
-        return new Condition() {
+    static Conditional when(boolean condition) {
+        return new Conditional() {
             @Override
             public <T> Optional<T> then(T value) {
                 return condition ? Optional.of(value) : Optional.empty();
@@ -31,7 +31,7 @@ public interface Conditional {
         };
     }
 
-    interface Condition {
+    interface Conditional {
 
         <T> Optional<T> then(T value);
     }

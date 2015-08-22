@@ -38,7 +38,7 @@ public class Demo {
 
         int i = 15;
 
-        int result = Conditional.when(i % 2 == 0).then(i / 2).orElse(i * 3);
+        int result = Condition.when(i % 2 == 0).then(i / 2).orElse(i * 3);
 
         // i == 45
     }
