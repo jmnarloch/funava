@@ -32,7 +32,7 @@ public class PartialTest {
     public void shouldInvokeFunc() {
 
         // given
-        Func<String> f = Partial.function(Functions::func);
+        Function<String> f = Partial.function(Functions::func);
 
         // when
         String result = f.apply();
@@ -45,7 +45,7 @@ public class PartialTest {
     public void shouldInvokeFuncWithOneArg() {
 
         // given
-        FuncOne<String, String> f = Partial.function(Functions::funcOneArg);
+        UnFunction<String, String> f = Partial.function(Functions::funcOneArg);
 
         // when
         String result = f.apply(ARG);
@@ -58,7 +58,7 @@ public class PartialTest {
     public void shouldInvokeFuncWithTwoArgs() {
 
         // given
-        FuncTwo<String, String, String> f = Partial.function(Functions::funcTwoArgs);
+        BiFunction<String, String, String> f = Partial.function(Functions::funcTwoArgs);
 
         // when
         String result = f.apply(ARG, ARG);
@@ -71,7 +71,7 @@ public class PartialTest {
     public void shouldInvokeFuncWithThreeArgs() {
 
         // given
-        FuncThree<String, String, String, String> f = Partial.function(Functions::funcThreeArgs);
+        TriFunction<String, String, String, String> f = Partial.function(Functions::funcThreeArgs);
 
         // when
         String result = f.apply(ARG, ARG, ARG);
@@ -84,7 +84,7 @@ public class PartialTest {
     public void shouldInvokeFuncWithFourArgs() {
 
         // given
-        FuncFour<String, String, String, String, String> f = Partial.function(Functions::funcFourArgs);
+        QuaterFunction<String, String, String, String, String> f = Partial.function(Functions::funcFourArgs);
 
         // when
         String result = f.apply(ARG, ARG, ARG, ARG);
@@ -97,7 +97,7 @@ public class PartialTest {
     public void shouldInvokeFuncWithFiveArgs() {
 
         // given
-        FuncFive<String, String, String, String, String, String> f = Partial.function(Functions::funcFiveArgs);
+        QuiFunction<String, String, String, String, String, String> f = Partial.function(Functions::funcFiveArgs);
 
         // when
         String result = f.apply(ARG, ARG, ARG, ARG, ARG);
@@ -110,10 +110,10 @@ public class PartialTest {
     public void shouldPartiallyApplyOneArgumentFunc() {
 
         // given
-        FuncOne<String, String> f = Partial.function(Functions::funcOneArg);
+        UnFunction<String, String> f = Partial.function(Functions::funcOneArg);
 
         // when
-        Func<String> partial = f.arg("1");
+        Function<String> partial = f.arg("1");
 
         // then
         assertEquals("1", partial.apply());
@@ -123,10 +123,10 @@ public class PartialTest {
     public void shouldPartiallyApplyOneArgumentFuncRight() {
 
         // given
-        FuncOne<String, String> f = Partial.function(Functions::funcOneArg);
+        UnFunction<String, String> f = Partial.function(Functions::funcOneArg);
 
         // when
-        Func<String> partial = f.rarg("1");
+        Function<String> partial = f.rarg("1");
 
         // then
         assertEquals("1", partial.apply());
@@ -136,10 +136,10 @@ public class PartialTest {
     public void shouldPartiallyApplyTwoArgumentFunc() {
 
         // given
-        FuncTwo<String, String, String> f = Partial.function(Functions::funcTwoArgs);
+        BiFunction<String, String, String> f = Partial.function(Functions::funcTwoArgs);
 
         // when
-        FuncOne<String, String> partial = f.arg("1");
+        UnFunction<String, String> partial = f.arg("1");
 
         // then
         assertEquals("12", partial.apply("2"));
@@ -149,10 +149,10 @@ public class PartialTest {
     public void shouldPartiallyApplyTwoArgumentFuncRight() {
 
         // given
-        FuncTwo<String, String, String> f = Partial.function(Functions::funcTwoArgs);
+        BiFunction<String, String, String> f = Partial.function(Functions::funcTwoArgs);
 
         // when
-        FuncOne<String, String> partial = f.rarg("1");
+        UnFunction<String, String> partial = f.rarg("1");
 
         // then
         assertEquals("21", partial.apply("2"));
@@ -162,10 +162,10 @@ public class PartialTest {
     public void shouldPartiallyApplyThreeArgumentFunc() {
 
         // given
-        FuncThree<String, String, String, String> f = Partial.function(Functions::funcThreeArgs);
+        TriFunction<String, String, String, String> f = Partial.function(Functions::funcThreeArgs);
 
         // when
-        FuncTwo<String, String, String> partial = f.arg("1");
+        BiFunction<String, String, String> partial = f.arg("1");
 
         // then
         assertEquals("123", partial.apply("2", "3"));
@@ -175,10 +175,10 @@ public class PartialTest {
     public void shouldPartiallyApplyThreeArgumentFuncRight() {
 
         // given
-        FuncThree<String, String, String, String> f = Partial.function(Functions::funcThreeArgs);
+        TriFunction<String, String, String, String> f = Partial.function(Functions::funcThreeArgs);
 
         // when
-        FuncTwo<String, String, String> partial = f.rarg("1");
+        BiFunction<String, String, String> partial = f.rarg("1");
 
         // then
         assertEquals("231", partial.apply("2", "3"));
@@ -188,10 +188,10 @@ public class PartialTest {
     public void shouldPartiallyApplyFourArgumentFunc() {
 
         // given
-        FuncFour<String, String, String, String, String> f = Partial.function(Functions::funcFourArgs);
+        QuaterFunction<String, String, String, String, String> f = Partial.function(Functions::funcFourArgs);
 
         // when
-        FuncThree<String, String, String, String> partial = f.arg("1");
+        TriFunction<String, String, String, String> partial = f.arg("1");
 
         // then
         assertEquals("1234", partial.apply("2", "3", "4"));
@@ -201,10 +201,10 @@ public class PartialTest {
     public void shouldPartiallyApplyFourArgumentFuncRight() {
 
         // given
-        FuncFour<String, String, String, String, String> f = Partial.function(Functions::funcFourArgs);
+        QuaterFunction<String, String, String, String, String> f = Partial.function(Functions::funcFourArgs);
 
         // when
-        FuncThree<String, String, String, String> partial = f.rarg("1");
+        TriFunction<String, String, String, String> partial = f.rarg("1");
 
         // then
         assertEquals("2341", partial.apply("2", "3", "4"));
@@ -214,10 +214,10 @@ public class PartialTest {
     public void shouldPartiallyApplyFiveArgumentFunc() {
 
         // given
-        FuncFive<String, String, String, String, String, String> f = Partial.function(Functions::funcFiveArgs);
+        QuiFunction<String, String, String, String, String, String> f = Partial.function(Functions::funcFiveArgs);
 
         // when
-        FuncFour<String, String, String, String, String> partial = f.arg("1");
+        QuaterFunction<String, String, String, String, String> partial = f.arg("1");
 
         // then
         assertEquals("12345", partial.apply("2", "3", "4", "5"));
@@ -227,10 +227,10 @@ public class PartialTest {
     public void shouldPartiallyApplyFiveArgumentFuncRight() {
 
         // given
-        FuncFive<String, String, String, String, String, String> f = Partial.function(Functions::funcFiveArgs);
+        QuiFunction<String, String, String, String, String, String> f = Partial.function(Functions::funcFiveArgs);
 
         // when
-        FuncFour<String, String, String, String, String> partial = f.rarg("1");
+        QuaterFunction<String, String, String, String, String> partial = f.rarg("1");
 
         // then
         assertEquals("23451", partial.apply("2", "3", "4", "5"));
@@ -240,10 +240,10 @@ public class PartialTest {
     public void shouldApplyFiveArgumentFunc() {
 
         // given
-        FuncFive<String, String, String, String, String, String> f = Partial.function(Functions::funcFiveArgs);
+        QuiFunction<String, String, String, String, String, String> f = Partial.function(Functions::funcFiveArgs);
 
         // when
-        Func partial = f.arg("1")
+        Function partial = f.arg("1")
                 .arg("2")
                 .arg("3")
                 .arg("4")
@@ -257,10 +257,10 @@ public class PartialTest {
     public void shouldApplyFiveArgumentFuncRight() {
 
         // given
-        FuncFive<String, String, String, String, String, String> f = Partial.function(Functions::funcFiveArgs);
+        QuiFunction<String, String, String, String, String, String> f = Partial.function(Functions::funcFiveArgs);
 
         // when
-        Func partial = f.rarg("1")
+        Function partial = f.rarg("1")
                 .rarg("2")
                 .rarg("3")
                 .rarg("4")

@@ -23,51 +23,51 @@ import io.jmnarloch.funava.supplier.*;
  */
 public interface Partial {
 
-    static <R> Func<R> function(Func<R> func) {
-        return func;
+    static <R> Function<R> function(Function<R> function) {
+        return function;
     }
 
-    static <R, T> FuncOne<R, T> function(FuncOne<R, T> fun) {
+    static <R, T> UnFunction<R, T> function(UnFunction<R, T> fun) {
         return fun;
     }
 
-    static <R, T1, T2> FuncTwo<R, T1, T2> function(FuncTwo<R, T1, T2> fun) {
+    static <R, T1, T2> BiFunction<R, T1, T2> function(BiFunction<R, T1, T2> fun) {
         return fun;
     }
 
-    static <R, T1, T2, T3> FuncThree<R, T1, T2, T3> function(FuncThree<R, T1, T2, T3> fun) {
+    static <R, T1, T2, T3> TriFunction<R, T1, T2, T3> function(TriFunction<R, T1, T2, T3> fun) {
         return fun;
     }
 
-    static <R, T1, T2, T3, T4> FuncFour<R, T1, T2, T3, T4> function(FuncFour<R, T1, T2, T3, T4> fun) {
+    static <R, T1, T2, T3, T4> QuaterFunction<R, T1, T2, T3, T4> function(QuaterFunction<R, T1, T2, T3, T4> fun) {
         return fun;
     }
 
-    static <R, T1, T2, T3, T4, T5> FuncFive<R, T1, T2, T3, T4, T5> function(FuncFive<R, T1, T2, T3, T4, T5> fun) {
+    static <R, T1, T2, T3, T4, T5> QuiFunction<R, T1, T2, T3, T4, T5> function(QuiFunction<R, T1, T2, T3, T4, T5> fun) {
         return fun;
     }
 
-    static Sup supplier(Sup sup) {
+    static Supplier supplier(Supplier supplier) {
+        return supplier;
+    }
+
+    static <T> UnSupplier<T> supplier(UnSupplier<T> sup) {
         return sup;
     }
 
-    static <T> SupOne<T> supplier(SupOne<T> sup) {
+    static <T1, T2> BiSupplier<T1, T2> supplier(BiSupplier<T1, T2> sup) {
         return sup;
     }
 
-    static <T1, T2> SupTwo<T1, T2> supplier(SupTwo<T1, T2> sup) {
+    static <T1, T2, T3> TriSupplier<T1, T2, T3> supplier(TriSupplier<T1, T2, T3> sup) {
         return sup;
     }
 
-    static <T1, T2, T3> SupThree<T1, T2, T3> supplier(SupThree<T1, T2, T3> sup) {
+    static <T1, T2, T3, T4> QuaterSupplier<T1, T2, T3, T4> supplier(QuaterSupplier<T1, T2, T3, T4> sup) {
         return sup;
     }
 
-    static <T1, T2, T3, T4> SupFour<T1, T2, T3, T4> supplier(SupFour<T1, T2, T3, T4> sup) {
-        return sup;
-    }
-
-    static <T1, T2, T3, T4, T5> SupFive<T1, T2, T3, T4, T5> supplier(SupFive<T1, T2, T3, T4, T5> sup) {
+    static <T1, T2, T3, T4, T5> QuiSupplier<T1, T2, T3, T4, T5> supplier(QuiSupplier<T1, T2, T3, T4, T5> sup) {
         return sup;
     }
 }

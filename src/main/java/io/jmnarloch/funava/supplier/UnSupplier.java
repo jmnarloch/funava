@@ -13,24 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.jmnarloch.funava.function;
+package io.jmnarloch.funava.supplier;
 
 /**
  *
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface FuncTwo<R, T1, T2> {
+public interface UnSupplier<T> {
 
-    R apply(T1 arg1, T2 arg2);
+    void apply(T arg);
 
-    default FuncOne<R, T2> arg(T1 arg) {
+    default Supplier arg(T arg) {
 
-        return (T2 arg2) -> apply(arg, arg2);
+        return () -> apply(arg);
     }
 
-    default FuncOne<R, T1> rarg(T2 arg) {
+    default Supplier rarg(T arg) {
 
-        return (T1 arg1) -> apply(arg1, arg);
+        return arg(arg);
     }
 }

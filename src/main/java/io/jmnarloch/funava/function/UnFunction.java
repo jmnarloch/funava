@@ -13,24 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.jmnarloch.funava.supplier;
+package io.jmnarloch.funava.function;
 
 /**
  *
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface SupThree<T1, T2, T3> {
+public interface UnFunction<R, T> {
 
-    void apply(T1 arg1, T2 arg2, T3 arg3);
+    R apply(T arg);
 
-    default SupTwo<T2, T3> arg(T1 arg) {
-
-        return (T2 arg2, T3 arg3) -> apply(arg, arg2, arg3);
+    default Function<R> arg(T arg) {
+        
+        return () -> apply(arg);
     }
 
-    default SupTwo<T1, T2> rarg(T3 arg) {
+    default Function<R> rarg(T arg) {
 
-        return (T1 arg1, T2 arg2) -> apply(arg1, arg2, arg);
+        return arg(arg);
     }
 }

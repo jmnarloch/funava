@@ -20,17 +20,7 @@ package io.jmnarloch.funava.supplier;
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface SupOne<T> {
+public interface Supplier {
 
-    void apply(T arg);
-
-    default Sup arg(T arg) {
-
-        return () -> apply(arg);
-    }
-
-    default Sup rarg(T arg) {
-
-        return arg(arg);
-    }
+    void apply();
 }
