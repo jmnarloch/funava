@@ -109,7 +109,7 @@ public interface Partial {
     /**
      * Applies a parametreless consumer.
      *
-     * @param function the function
+     * @param consumer the function
      * @return the function wrapper
      */
     static Consumer consumer(Consumer consumer) {
@@ -119,57 +119,57 @@ public interface Partial {
     /**
      * Applies a single argument function.
      *
-     * @param function the function
+     * @param consumer the function
      * @param <T> the function argument type
      * @return the function wrapper
      */
-    static <T> Consumer1<T> consumer(Consumer1<T> sup) {
-        return sup;
+    static <T> Consumer1<T> consumer(Consumer1<T> consumer) {
+        return consumer;
     }
 
     /**
      * Applies a double argument function.
      *
-     * @param function the function
+     * @param consumer the function
      * @param <T1> the function first argument type
      * @param <T2> the function second argument type
      * @return the function wrapper
      */
-    static <T1, T2> Consumer2<T1, T2> consumer(Consumer2<T1, T2> sup) {
-        return sup;
+    static <T1, T2> Consumer2<T1, T2> consumer(Consumer2<T1, T2> consumer) {
+        return consumer;
     }
 
     /**
      * Applies a triple argument function.
      *
-     * @param function the function
+     * @param consumer the function
      * @param <T1> the function first argument type
      * @param <T2> the function first argument type
      * @param <T3> the function third argument type
      * @return the function wrapper
      */
-    static <T1, T2, T3> Consumer3<T1, T2, T3> consumer(Consumer3<T1, T2, T3> sup) {
-        return sup;
+    static <T1, T2, T3> Consumer3<T1, T2, T3> consumer(Consumer3<T1, T2, T3> consumer) {
+        return consumer;
     }
 
     /**
      * Applies a quadruple argument function.
      *
-     * @param function the function
+     * @param consumer the function
      * @param <T1> the function first argument type
      * @param <T2> the function first argument type
      * @param <T3> the function third argument type
      * @param <T4> the function fourth argument type
      * @return the function wrapper
      */
-    static <T1, T2, T3, T4> Consumer4<T1, T2, T3, T4> consumer(Consumer4<T1, T2, T3, T4> sup) {
-        return sup;
+    static <T1, T2, T3, T4> Consumer4<T1, T2, T3, T4> consumer(Consumer4<T1, T2, T3, T4> consumer) {
+        return consumer;
     }
 
     /**
      * Applies a quintuple argument function.
      *
-     * @param function the function
+     * @param consumer the function
      * @param <T1> the function first argument type
      * @param <T2> the function first argument type
      * @param <T3> the function third argument type
@@ -177,7 +177,7 @@ public interface Partial {
      * @param <T5> the function fifth argument type
      * @return the function wrapper
      */
-    static <T1, T2, T3, T4, T5> Consumer5<T1, T2, T3, T4, T5> consumer(Consumer5<T1, T2, T3, T4, T5> sup) {
-        return sup;
+    static <T1, T2, T3, T4, T5> Consumer5<T1, T2, T3, T4, T5> consumer(Consumer5<T1, T2, T3, T4, T5> consumer) {
+        return consumer;
     }
 }
