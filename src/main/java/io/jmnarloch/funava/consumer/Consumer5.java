@@ -13,32 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.jmnarloch.funava.function;
+package io.jmnarloch.funava.consumer;
 
 /**
- * An abstraction of quadruple argument function.
+ * An abstraction of quintuple argument routine that does not return any result.
  *
- * @param <R> the function return type
  * @param <T1> the function first argument type
  * @param <T2> the function second argument type
  * @param <T3> the function third argument type
  * @param <T4> the function fourth argument type
+ * @param <T5> the function fifth argument type
  *
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface Function4<R, T1, T2, T3, T4> {
+public interface Consumer5<T1, T2, T3, T4, T5> {
 
     /**
-     * Executes the function and return it's result.
+     * Executes the function.
      *
-     * @param arg1 the first argument
-     * @param arg2 the second argument
-     * @param arg3 the third argument
-     * @param arg4 the fourth argument
-     * @return the function execution result
+     * @param arg1 the first function argument
+     * @param arg2 the second function argument
+     * @param arg3 the third function argument
+     * @param arg4 the forth function argument
+     * @param arg5 the fifth function argument
      */
-    R apply(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    void apply(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
 
     /**
      * Applies single argument and returns the partially applied function.
@@ -46,9 +46,9 @@ public interface Function4<R, T1, T2, T3, T4> {
      * @param arg the argument to apply
      * @return the partially applied function
      */
-    default Function3<R, T2, T3, T4> arg(T1 arg) {
+    default Consumer4<T2, T3, T4, T5> arg(T1 arg) {
 
-        return (T2 arg2, T3 arg3, T4 arg4) -> apply(arg, arg2, arg3, arg4);
+        return (T2 arg2, T3 arg3, T4 arg4, T5 arg5) -> apply(arg, arg2, arg3, arg4, arg5);
     }
 
     /**
@@ -57,8 +57,8 @@ public interface Function4<R, T1, T2, T3, T4> {
      * @param arg the argument to apply
      * @return the partially applied function
      */
-    default Function3<R, T1, T2, T3> rarg(T4 arg) {
+    default Consumer4<T1, T2, T3, T4> rarg(T5 arg) {
 
-        return (T1 arg1, T2 arg2, T3 arg3) -> apply(arg1, arg2, arg3, arg);
+        return (T1 arg1, T2 arg2, T3 arg3, T4 arg4) -> apply(arg1, arg2, arg3, arg4, arg);
     }
 }

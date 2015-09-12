@@ -16,19 +16,43 @@
 package io.jmnarloch.funava.function;
 
 /**
+ * An abstraction of double argument function.
+ *
+ * @param <R> the function return type
+ * @param <T1> the function first argument type
+ * @param <T2> the function second argument type
  *
  * @author Jakub Narloch
  */
 @FunctionalInterface
 public interface Function2<R, T1, T2> {
 
+    /**
+     * Executes the function and return it's result.
+     *
+     * @param arg1 the first argument
+     * @param arg2 the second argument
+     * @return the function execution result
+     */
     R apply(T1 arg1, T2 arg2);
 
+    /**
+     * Applies single argument and returns the partially applied function.
+     *
+     * @param arg the argument to apply
+     * @return the partially applied function
+     */
     default Function1<R, T2> arg(T1 arg) {
 
         return (T2 arg2) -> apply(arg, arg2);
     }
 
+    /**
+     * Applies the single argument from the end and returns the partially applied function.
+     *
+     * @param arg the argument to apply
+     * @return the partially applied function
+     */
     default Function1<R, T1> rarg(T2 arg) {
 
         return (T1 arg1) -> apply(arg1, arg);

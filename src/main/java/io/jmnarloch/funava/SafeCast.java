@@ -18,10 +18,20 @@ package io.jmnarloch.funava;
 import java.util.Optional;
 
 /**
+ * An functional counterpart of Java cast operator allowing to specify the
+ * alternative flow through {@link Optional#orElse(Object)} method.
+ *
  * @author Jakub Narloch
  */
 public interface SafeCast {
 
+    /**
+     * Casts the specified object into desired type.
+     *
+     * @param source the object to cast
+     * @param <S> the source type
+     * @return the {@link SafeCast.Castable}
+     */
     static <S> Castable cast(S source) {
         return new Castable() {
             @Override
@@ -32,8 +42,20 @@ public interface SafeCast {
         };
     }
 
+    /**
+     * Simple interface for specifying the desired cast type.
+     *
+     * @author Jakub Narloch
+     */
+    @FunctionalInterface
     interface Castable {
 
+        /**
+         * Perform the cast to the desired type and returns the {@link Optional} result.
+         * @param target the target type
+         * @param <T> the class type
+         * @return the cast result
+         */
         <T> Optional<T> to(Class<T> target);
     }
 }

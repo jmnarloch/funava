@@ -16,19 +16,41 @@
 package io.jmnarloch.funava.function;
 
 /**
+ * An abstraction of single argument function.
+ *
+ * @param <R> the function return type
+ * @param <T> the function argument type
  *
  * @author Jakub Narloch
  */
 @FunctionalInterface
 public interface Function1<R, T> {
 
+    /**
+     * Executes the function and return it's result.
+     *
+     * @param arg the argument
+     * @return the function execution result
+     */
     R apply(T arg);
 
+    /**
+     * Applies single argument and returns the partially applied function.
+     *
+     * @param arg the argument to apply
+     * @return the partially applied function
+     */
     default Function<R> arg(T arg) {
-        
+
         return () -> apply(arg);
     }
 
+    /**
+     * Applies the single argument from the end and returns the partially applied function.
+     *
+     * @param arg the argument to apply
+     * @return the partially applied function
+     */
     default Function<R> rarg(T arg) {
 
         return arg(arg);

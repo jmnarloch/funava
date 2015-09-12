@@ -18,10 +18,17 @@ package io.jmnarloch.funava;
 import java.util.Optional;
 
 /**
+ * An convenient utility class replacement for ternary conditional operator.
+ *
  * @author Jakub Narloch
  */
 public interface Condition {
 
+    /**
+     * Specifies the condition, if it's true the return value {@link Conditional#then} method will be evaluated.
+     * @param condition the condition
+     * @return the {@link Conditional}
+     */
     static Conditional when(boolean condition) {
         return new Conditional() {
             @Override

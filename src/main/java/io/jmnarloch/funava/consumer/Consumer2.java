@@ -13,23 +13,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.jmnarloch.funava.supplier;
+package io.jmnarloch.funava.consumer;
 
 /**
+ * An abstraction of double argument routine that does not return any result.
+ *
+ * @param <T1> the function first argument type
+ * @param <T2> the function second argument type
  *
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface Supplier2<T1, T2> {
+public interface Consumer2<T1, T2> {
 
     void apply(T1 arg1, T2 arg2);
 
-    default Supplier1<T2> arg(T1 arg) {
+    /**
+     * Applies single argument and returns the partially applied function.
+     *
+     * @param arg the argument to apply
+     * @return the partially applied function
+     */
+    default Consumer1<T2> arg(T1 arg) {
 
         return (T2 arg2) -> apply(arg, arg2);
     }
 
-    default Supplier1<T1> rarg(T2 arg) {
+    /**
+     * Applies the single argument from the end and returns the partially applied function.
+     *
+     * @param arg the argument to apply
+     * @return the partially applied function
+     */
+    default Consumer1<T1> rarg(T2 arg) {
 
         return (T1 arg1) -> apply(arg1, arg);
     }

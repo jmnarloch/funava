@@ -13,24 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.jmnarloch.funava.supplier;
+package io.jmnarloch.funava.consumer;
 
 /**
+ * An abstraction of parameter less routine that does not return any result.
  *
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface Supplier1<T> {
+public interface Consumer {
 
-    void apply(T arg);
-
-    default Supplier arg(T arg) {
-
-        return () -> apply(arg);
-    }
-
-    default Supplier rarg(T arg) {
-
-        return arg(arg);
-    }
+    /**
+     * Executes the function.
+     */
+    void apply();
 }

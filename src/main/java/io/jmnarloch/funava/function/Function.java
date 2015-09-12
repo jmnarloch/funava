@@ -16,11 +16,19 @@
 package io.jmnarloch.funava.function;
 
 /**
+ * An abstraction of parameter less function.
+ *
+ * @param <R> the function return type
  *
  * @author Jakub Narloch
  */
 @FunctionalInterface
 public interface Function<R> {
 
+    /**
+     * Executes the function and returns it result.
+     *
+     * @return the function execution result
+     */
     R apply();
 }

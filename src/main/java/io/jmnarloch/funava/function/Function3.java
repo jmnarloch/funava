@@ -16,19 +16,45 @@
 package io.jmnarloch.funava.function;
 
 /**
+ * An abstraction of triple argument function.
+ *
+ * @param <R> the function return type
+ * @param <T1> the function first argument type
+ * @param <T2> the function second argument type
+ * @param <T3> the function third argument type
  *
  * @author Jakub Narloch
  */
 @FunctionalInterface
 public interface Function3<R, T1, T2, T3> {
 
+    /**
+     * Executes the function and return it's result.
+     *
+     * @param arg1 the first argument
+     * @param arg2 the second argument
+     * @param arg3 the third argument
+     * @return the function execution result
+     */
     R apply(T1 arg1, T2 arg2, T3 arg3);
 
+    /**
+     * Applies single argument and returns the partially applied function.
+     *
+     * @param arg the argument to apply
+     * @return the partially applied function
+     */
     default Function2<R, T2, T3> arg(T1 arg) {
 
         return (T2 arg2, T3 arg3) -> apply(arg, arg2, arg3);
     }
 
+    /**
+     * Applies the single argument from the end and returns the partially applied function.
+     *
+     * @param arg the argument to apply
+     * @return the partially applied function
+     */
     default Function2<R, T1, T2> rarg(T3 arg) {
 
         return (T1 arg1, T2 arg2) -> apply(arg1, arg2, arg);
