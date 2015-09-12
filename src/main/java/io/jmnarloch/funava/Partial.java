@@ -44,8 +44,8 @@ public interface Partial {
      * @param <T> the function argument type
      * @return the function wrapper
      */
-    static <R, T> Function1<R, T> function(Function1<R, T> fun) {
-        return fun;
+    static <R, T> Function1<R, T> function(Function1<R, T> function) {
+        return function;
     }
 
     /**
@@ -57,8 +57,8 @@ public interface Partial {
      * @param <T2> the function second argument type
      * @return the function wrapper
      */
-    static <R, T1, T2> Function2<R, T1, T2> function(Function2<R, T1, T2> fun) {
-        return fun;
+    static <R, T1, T2> Function2<R, T1, T2> function(Function2<R, T1, T2> function) {
+        return function;
     }
 
     /**
@@ -71,8 +71,8 @@ public interface Partial {
      * @param <T3> the function third argument type
      * @return the function wrapper
      */
-    static <R, T1, T2, T3> Function3<R, T1, T2, T3> function(Function3<R, T1, T2, T3> fun) {
-        return fun;
+    static <R, T1, T2, T3> Function3<R, T1, T2, T3> function(Function3<R, T1, T2, T3> function) {
+        return function;
     }
 
     /**
@@ -86,8 +86,8 @@ public interface Partial {
      * @param <T4> the function fourth argument type
      * @return the function wrapper
      */
-    static <R, T1, T2, T3, T4> Function4<R, T1, T2, T3, T4> function(Function4<R, T1, T2, T3, T4> fun) {
-        return fun;
+    static <R, T1, T2, T3, T4> Function4<R, T1, T2, T3, T4> function(Function4<R, T1, T2, T3, T4> function) {
+        return function;
     }
 
     /**
@@ -102,8 +102,8 @@ public interface Partial {
      * @param <T5> the function fifth argument type
      * @return the function wrapper
      */
-    static <R, T1, T2, T3, T4, T5> Function5<R, T1, T2, T3, T4, T5> function(Function5<R, T1, T2, T3, T4, T5> fun) {
-        return fun;
+    static <R, T1, T2, T3, T4, T5> Function5<R, T1, T2, T3, T4, T5> function(Function5<R, T1, T2, T3, T4, T5> function) {
+        return function;
     }
 
     /**
