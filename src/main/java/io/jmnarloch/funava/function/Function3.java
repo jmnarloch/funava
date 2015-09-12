@@ -13,24 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.jmnarloch.funava.supplier;
+package io.jmnarloch.funava.function;
 
 /**
  *
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface QuiSupplier<T1, T2, T3, T4, T5> {
+public interface Function3<R, T1, T2, T3> {
 
-    void apply(T1 arg1, T2 arg2, T3 arg3, T4 arg4, T5 arg5);
+    R apply(T1 arg1, T2 arg2, T3 arg3);
 
-    default QuaterSupplier<T2, T3, T4, T5> arg(T1 arg) {
+    default Function2<R, T2, T3> arg(T1 arg) {
 
-        return (T2 arg2, T3 arg3, T4 arg4, T5 arg5) -> apply(arg, arg2, arg3, arg4, arg5);
+        return (T2 arg2, T3 arg3) -> apply(arg, arg2, arg3);
     }
 
-    default QuaterSupplier<T1, T2, T3, T4> rarg(T5 arg) {
+    default Function2<R, T1, T2> rarg(T3 arg) {
 
-        return (T1 arg1, T2 arg2, T3 arg3, T4 arg4) -> apply(arg1, arg2, arg3, arg4, arg);
+        return (T1 arg1, T2 arg2) -> apply(arg1, arg2, arg);
     }
 }

@@ -13,24 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.jmnarloch.funava.supplier;
+package io.jmnarloch.funava.function;
 
 /**
  *
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface QuaterSupplier<T1, T2, T3, T4> {
+public interface Function2<R, T1, T2> {
 
-    void apply(T1 arg1, T2 arg2, T3 arg3, T4 arg4);
+    R apply(T1 arg1, T2 arg2);
 
-    default TriSupplier<T2, T3, T4> arg(T1 arg) {
+    default Function1<R, T2> arg(T1 arg) {
 
-        return (T2 arg2, T3 arg3, T4 arg4) -> apply(arg, arg2, arg3, arg4);
+        return (T2 arg2) -> apply(arg, arg2);
     }
 
-    default TriSupplier<T1, T2, T3> rarg(T4 arg) {
+    default Function1<R, T1> rarg(T2 arg) {
 
-        return (T1 arg1, T2 arg2, T3 arg3) -> apply(arg1, arg2, arg3, arg);
+        return (T1 arg1) -> apply(arg1, arg);
     }
 }

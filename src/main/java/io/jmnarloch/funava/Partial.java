@@ -27,23 +27,23 @@ public interface Partial {
         return function;
     }
 
-    static <R, T> UnFunction<R, T> function(UnFunction<R, T> fun) {
+    static <R, T> Function1<R, T> function(Function1<R, T> fun) {
         return fun;
     }
 
-    static <R, T1, T2> BiFunction<R, T1, T2> function(BiFunction<R, T1, T2> fun) {
+    static <R, T1, T2> Function2<R, T1, T2> function(Function2<R, T1, T2> fun) {
         return fun;
     }
 
-    static <R, T1, T2, T3> TriFunction<R, T1, T2, T3> function(TriFunction<R, T1, T2, T3> fun) {
+    static <R, T1, T2, T3> Function3<R, T1, T2, T3> function(Function3<R, T1, T2, T3> fun) {
         return fun;
     }
 
-    static <R, T1, T2, T3, T4> QuaterFunction<R, T1, T2, T3, T4> function(QuaterFunction<R, T1, T2, T3, T4> fun) {
+    static <R, T1, T2, T3, T4> Function4<R, T1, T2, T3, T4> function(Function4<R, T1, T2, T3, T4> fun) {
         return fun;
     }
 
-    static <R, T1, T2, T3, T4, T5> QuiFunction<R, T1, T2, T3, T4, T5> function(QuiFunction<R, T1, T2, T3, T4, T5> fun) {
+    static <R, T1, T2, T3, T4, T5> Function5<R, T1, T2, T3, T4, T5> function(Function5<R, T1, T2, T3, T4, T5> fun) {
         return fun;
     }
 
@@ -51,23 +51,23 @@ public interface Partial {
         return supplier;
     }
 
-    static <T> UnSupplier<T> supplier(UnSupplier<T> sup) {
+    static <T> Supplier1<T> supplier(Supplier1<T> sup) {
         return sup;
     }
 
-    static <T1, T2> BiSupplier<T1, T2> supplier(BiSupplier<T1, T2> sup) {
+    static <T1, T2> Supplier2<T1, T2> supplier(Supplier2<T1, T2> sup) {
         return sup;
     }
 
-    static <T1, T2, T3> TriSupplier<T1, T2, T3> supplier(TriSupplier<T1, T2, T3> sup) {
+    static <T1, T2, T3> Supplier3<T1, T2, T3> supplier(Supplier3<T1, T2, T3> sup) {
         return sup;
     }
 
-    static <T1, T2, T3, T4> QuaterSupplier<T1, T2, T3, T4> supplier(QuaterSupplier<T1, T2, T3, T4> sup) {
+    static <T1, T2, T3, T4> Supplier5<T1, T2, T3, T4> supplier(Supplier5<T1, T2, T3, T4> sup) {
         return sup;
     }
 
-    static <T1, T2, T3, T4, T5> QuiSupplier<T1, T2, T3, T4, T5> supplier(QuiSupplier<T1, T2, T3, T4, T5> sup) {
+    static <T1, T2, T3, T4, T5> Supplier4<T1, T2, T3, T4, T5> supplier(Supplier4<T1, T2, T3, T4, T5> sup) {
         return sup;
     }
 }

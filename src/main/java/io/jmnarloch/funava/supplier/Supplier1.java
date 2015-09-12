@@ -20,17 +20,17 @@ package io.jmnarloch.funava.supplier;
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface TriSupplier<T1, T2, T3> {
+public interface Supplier1<T> {
 
-    void apply(T1 arg1, T2 arg2, T3 arg3);
+    void apply(T arg);
 
-    default BiSupplier<T2, T3> arg(T1 arg) {
+    default Supplier arg(T arg) {
 
-        return (T2 arg2, T3 arg3) -> apply(arg, arg2, arg3);
+        return () -> apply(arg);
     }
 
-    default BiSupplier<T1, T2> rarg(T3 arg) {
+    default Supplier rarg(T arg) {
 
-        return (T1 arg1, T2 arg2) -> apply(arg1, arg2, arg);
+        return arg(arg);
     }
 }

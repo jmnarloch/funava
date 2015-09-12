@@ -20,17 +20,17 @@ package io.jmnarloch.funava.supplier;
  * @author Jakub Narloch
  */
 @FunctionalInterface
-public interface UnSupplier<T> {
+public interface Supplier2<T1, T2> {
 
-    void apply(T arg);
+    void apply(T1 arg1, T2 arg2);
 
-    default Supplier arg(T arg) {
+    default Supplier1<T2> arg(T1 arg) {
 
-        return () -> apply(arg);
+        return (T2 arg2) -> apply(arg, arg2);
     }
 
-    default Supplier rarg(T arg) {
+    default Supplier1<T1> rarg(T2 arg) {
 
-        return arg(arg);
+        return (T1 arg1) -> apply(arg1, arg);
     }
 }
