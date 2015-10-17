@@ -28,7 +28,7 @@ public class Demo {
 
         Object val = "test";
 
-        String result =  SafeCast.cast(val).to(String.class).orElse("default");
+        String result = SafeCast.cast(val).to(String.class).orElse("default");
 
         // result == test
     }
@@ -54,7 +54,6 @@ public class Demo {
                 .apply("funava");
 
         // url = https://github.com:443/jmnarloch/funava
-        System.out.println(url);
 
         int sum = Partial.function(Demo::sum)
                 .arg(1)

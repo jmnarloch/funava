@@ -47,4 +47,12 @@ public class Consumers {
     static void funcFiveArgs(String arg1, String arg2, String arg3, String arg4, String args5) {
         value = arg1 + arg2 + arg3 + arg4 + args5;
     }
+
+    static void funcVarArgs(String... args) {
+        final StringBuilder builder = new StringBuilder();
+        for (String arg : args) {
+            builder.append(arg);
+        }
+        value = builder.toString();
+    }
 }

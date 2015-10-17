@@ -15,8 +15,13 @@
  */
 package io.jmnarloch.funava;
 
-import io.jmnarloch.funava.function.*;
 import io.jmnarloch.funava.consumer.*;
+import io.jmnarloch.funava.function.*;
+
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * An convient class for acquiring function/consumer wrapper class.
@@ -107,6 +112,33 @@ public interface Partial {
     }
 
     /**
+     * Applies a variable argument function.
+     *
+     * @param function the function
+     * @param <R> the function return type
+     * @param <T> the function argument type
+     * @return the function wrapper
+     */
+    static <R, T> VArgFunction<R, T> vargFunction(VArgFunction<R, T> function) {
+
+        return new VArgFunction<R, T>() {
+
+            private final List<T> args = new LinkedList<>();
+
+            public R apply(T... args) {
+                this.args.addAll(Arrays.asList(args));
+                final T[] argsArray = (T[]) Array.newInstance(args.getClass().getComponentType(), args.length);
+                return function.apply(this.args.toArray(argsArray));
+            }
+
+            public VArgFunction<R, T> arg(T arg) {
+                args.add(arg);
+                return this;
+            }
+        };
+    }
+
+    /**
      * Applies a parametreless consumer.
      *
      * @param consumer the function
@@ -179,5 +211,31 @@ public interface Partial {
      */
     static <T1, T2, T3, T4, T5> Consumer5<T1, T2, T3, T4, T5> consumer(Consumer5<T1, T2, T3, T4, T5> consumer) {
         return consumer;
+    }
+
+    /**
+     * Applies a variable argument function.
+     *
+     * @param consumer the function
+     * @param <T> the function argument type
+     * @return the function wrapper
+     */
+    static <T> VArgConsumer<T> vargConsumer(VArgConsumer<T> consumer) {
+
+        return new VArgConsumer<T>() {
+
+            private final List<T> args = new LinkedList<>();
+
+            public void apply(T... args) {
+                this.args.addAll(Arrays.asList(args));
+                final T[] argsArray = (T[]) Array.newInstance(args.getClass().getComponentType(), args.length);
+                consumer.apply(this.args.toArray(argsArray));
+            }
+
+            public VArgConsumer<T> arg(T arg) {
+                args.add(arg);
+                return this;
+            }
+        };
     }
 }
