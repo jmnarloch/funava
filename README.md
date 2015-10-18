@@ -34,7 +34,7 @@ String result =  SafeCast.cast(val).to(String.class).orElse("default");
 
 Ternary operator
 
-```
+```java
 
 int i = 15;
 
